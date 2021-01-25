@@ -17,5 +17,6 @@ module.exports = {
         cleanOnceBeforeBuildPatterns: ["js/*", "css/*", "fonts/*", "img/*"]
       })
     ]
-  }
+  },
+  transpileDependencies: ["vuetify"]
 };
