@@ -1,10 +1,16 @@
 <template>
-  <v-list-item color="primary" link :to="{ name: route.path }" exact>
+  <v-list-item
+    v-if="route.meta.show"
+    color="primary"
+    link
+    :to="{ name: route.name }"
+    exact
+  >
     <v-list-item-action>
-      <v-icon v-text="route.icon" />
+      <v-icon v-text="route.meta.icon" />
     </v-list-item-action>
     <v-list-item-content>
-      <v-list-item-title v-text="route.name" />
+      <v-list-item-title v-text="route.meta.title" />
     </v-list-item-content>
   </v-list-item>
 </template>

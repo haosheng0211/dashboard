@@ -1,13 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import routes from "@/utils /routes";
+import store from "@/store";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes: []
 });
-
+router.onReady(async () => {
+  await store.dispatch("routes/loading");
+  await router.addRoutes([
+    {
+      path: "/",
+      component: () => import("@/layouts/dashboard/dashboard.vue"),
+      children: [...store.getters["routes/value"]]
+    }
+  ]);
+});
 export default router;
