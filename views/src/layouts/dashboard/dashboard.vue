@@ -10,6 +10,7 @@
       </v-toolbar-title>
     </v-app-bar>
     <v-main>
+      <Breadcrumb />
       <v-container fluid>
         <router-view />
       </v-container>
@@ -20,9 +21,10 @@
 <script lang="ts">
 import { Component, Provide, Vue } from "vue-property-decorator";
 import Menu from "./menu/menu.vue";
+import Breadcrumb from "./breadcrumb/breadcrumb.vue";
 
 @Component({
-  components: { Menu }
+  components: { Menu, Breadcrumb }
 })
 export default class Dashboard extends Vue {
   @Provide() drawer = false;
