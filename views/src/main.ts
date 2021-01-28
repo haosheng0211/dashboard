@@ -2,10 +2,7 @@ import Vue from "vue";
 import app from "./app.vue";
 import router from "./router";
 import store from "./store";
-import api from "./apis";
-import vuetify from "./plugins/vuetify";
-
-Vue.prototype.$api = api;
+import { vuetify } from "./plugins";
 
 new Vue({
   router,
